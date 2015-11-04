@@ -131,6 +131,8 @@
 }
 
 - (IBAction)nextClick {
+    [self.optionsView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    
     self.index ++;
     DDQuestion *question = self.questions[self.index];
     [self showQuestion:question];
@@ -161,14 +163,37 @@
         CGFloat answerX = marginLeft + i*(answerW + margin);
         
         answerBtn.frame = CGRectMake(answerX, answerY, answerW, answerH);
+        [answerBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         //[answerBtn setBackgroundColor:[UIColor whiteColor]];
         [answerBtn setBackgroundImage:[UIImage imageNamed:@"btn_answer"] forState:UIControlStateNormal];
         [answerBtn setBackgroundImage:[UIImage imageNamed:@"btn_answer_highlighted"] forState:UIControlStateHighlighted];
+        
+        [answerBtn addTarget:self action:@selector(answerBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
 
 }
 
+//通过tag进行按钮查找
+- (void) answerBtnClick:(UIButton*)answerBtn{
+    
+    if(answerBtn.currentTitle == nil){
+        return;
+    }
+    
+    [self changeAnswerBtnColor:[UIColor blackColor]];
+    
+    for (UIButton *optionBtn in self.optionsView.subviews) {
+        if (answerBtn.tag == optionBtn.tag) {
+            optionBtn.hidden = NO;
+            break;
+        }
+    }
+    
+    [answerBtn setTitle:nil forState:UIControlStateNormal];
+}
+
 - (void) addOptionButtons:(DDQuestion*)question{
+    
     
     CGFloat optionW = 35;
     CGFloat optionH = 35;
@@ -191,6 +216,57 @@
         [optionBtn setBackgroundImage:[UIImage imageNamed:@"btn_option_highlighted"] forState:UIControlStateHighlighted];
         [optionBtn setTitle:question.options[i] forState:UIControlStateNormal];
         [optionBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        optionBtn.tag = i;
+        [optionBtn addTarget:self action:@selector(optionBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    }
+}
+
+
+- (void) optionBtnClick:(UIButton*)sender{
+    
+    
+    for (UIButton *answerBtn in self.answersView.subviews) {
+        //获取按钮的文字
+        //NSString *title = [answerBtn titleForState:UIControlStateNormal];
+        if ([answerBtn currentTitle] == nil) {
+            [answerBtn setTitle:sender.currentTitle forState:UIControlStateNormal];
+            answerBtn.tag = sender.tag;
+            sender.hidden = YES;
+            break;
+        }
+    }
+    
+    BOOL isFull = YES;
+    NSMutableString *inputAnswers = [NSMutableString string];
+    
+    for (UIButton *answerBtn in self.answersView.subviews) {
+        
+        if (answerBtn.currentTitle == nil) {
+            isFull = NO;
+            break;
+        }
+        
+        [inputAnswers appendString:answerBtn.currentTitle];
+    }
+    
+    if (isFull) {
+        DDQuestion *currentQuestion = self.questions[self.index];
+        
+        if ([currentQuestion.answer isEqualToString:inputAnswers]) {
+            [self changeAnswerBtnColor:[UIColor blueColor]];
+        }else{
+            [self changeAnswerBtnColor:[UIColor redColor]];
+        }
+    }
+    
+    
+}
+
+
+- (void) changeAnswerBtnColor:(UIColor*)color{
+    
+    for (UIButton* answerBtn in self.answersView.subviews) {
+        [answerBtn setTitleColor:color forState:UIControlStateNormal];
     }
 }
 

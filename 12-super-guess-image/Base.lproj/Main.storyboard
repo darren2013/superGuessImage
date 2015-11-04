@@ -18,7 +18,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="UHz-i8-vb7">
-                                <rect key="frame" x="83" y="229" width="209" height="236"/>
+                                <rect key="frame" x="78" y="166" width="209" height="236"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="xb"/>
                                 <connections>
@@ -26,7 +26,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="us9-5w-WU9">
-                                <rect key="frame" x="0.0" y="243" width="75" height="36"/>
+                                <rect key="frame" x="0.0" y="173" width="75" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="提示" image="icon_tip" backgroundImage="btn_left"/>
                                 <state key="highlighted" backgroundImage="btn_left_highlighted"/>
@@ -35,7 +35,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ri8-Q8-h3d">
-                                <rect key="frame" x="300" y="236" width="75" height="36"/>
+                                <rect key="frame" x="300" y="166" width="75" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="大图" image="icon_img" backgroundImage="btn_right"/>
                                 <state key="highlighted" backgroundImage="btn_right_highlighted"/>
@@ -44,7 +44,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0Py-Hf-X6G">
-                                <rect key="frame" x="0.0" y="357" width="75" height="36"/>
+                                <rect key="frame" x="0.0" y="316" width="75" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="帮助" image="icon_help" backgroundImage="btn_left"/>
                                 <state key="highlighted" backgroundImage="btn_left_highlighted"/>
@@ -53,7 +53,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qhd-0E-Ai8">
-                                <rect key="frame" x="30" y="166" width="334" height="21"/>
+                                <rect key="frame" x="21" y="115" width="334" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -72,7 +72,7 @@
                                 <state key="normal" title="1000" image="coin"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8go-xa-wZW">
-                                <rect key="frame" x="300" y="357" width="75" height="36"/>
+                                <rect key="frame" x="300" y="307" width="75" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="下一题" backgroundImage="btn_right">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -83,13 +83,13 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" id="RYf-mA-HB8">
-                                <rect key="frame" x="0.0" y="473" width="375" height="35"/>
+                                <rect key="frame" x="1" y="437" width="375" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" id="Vev-qg-0DY">
-                                <rect key="frame" x="0.0" y="531" width="375" height="128"/>
+                                <rect key="frame" x="0.0" y="480" width="375" height="181"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
