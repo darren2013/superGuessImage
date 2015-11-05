@@ -14,10 +14,22 @@
 - (instancetype) initWithDic:(NSDictionary*)dic{
     
     if (self = [super init]) {
-        self.answer = dic[@"answer"];
-        self.icon = dic[@"icon"];
-        self.title = dic[@"title"];
-        self.options = dic[@"options"];
+//        self.answer = dic[@"answer"];
+//        self.icon = dic[@"icon"];
+//        self.title = dic[@"dic[@"title"]"];
+//        self.options = dic[@"options"];
+        
+        //kvc key value coding
+//        [self setValue: dic[@"answer"] forKey:@"answer"];
+//        [self setValue:dic[@"icon"] forKey:@"icon"];
+//        [self setValue:dic[@"title"] forKey:@"title"];
+//        [self setValue:dic[@"options"] forKey:@"options"];
+        
+        //属性的名称必须和字典中键的值相同
+        [self setValuesForKeysWithDictionary:dic];
+        
+        
+        
     }
     
     return self;

@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "DDQuestion.h"
 
-@interface ViewController ()
+@interface ViewController () <UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *countView;
 @property (weak, nonatomic) IBOutlet UILabel *titleView;
 @property (weak, nonatomic) IBOutlet UIButton *coinView;
@@ -131,9 +131,21 @@
 }
 
 - (IBAction)nextClick {
-    [self.optionsView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    
     
     self.index ++;
+    
+    if (self.index == self.questions.count) {
+        
+//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"恭喜过关" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定",nil];
+//        [alertView show];
+        
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"提示" delegate:nil cancelButtonTitle:@"取消" destructiveButtonTitle:@"确定" otherButtonTitles: nil];
+        [actionSheet showInView:self.view];
+        
+        return;
+    }
+    [self.optionsView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     DDQuestion *question = self.questions[self.index];
     [self showQuestion:question];
     self.nextClickView.enabled = !(self.index == self.questions.count - 1);
@@ -254,6 +266,15 @@
         
         if ([currentQuestion.answer isEqualToString:inputAnswers]) {
             [self changeAnswerBtnColor:[UIColor blueColor]];
+            
+            //加分
+            int score = [self.coinView.currentTitle intValue];
+            score += 500;
+            
+            [self.coinView setTitle:[NSString stringWithFormat:@"%d",score] forState:UIControlStateNormal];
+            
+            [self performSelector:@selector(nextClick) withObject:nil afterDelay:1];
+            
         }else{
             [self changeAnswerBtnColor:[UIColor redColor]];
         }
@@ -284,4 +305,15 @@
     }
     
 }
+
+#pragma mark - AlertView代理方法
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSLog(@"%ld",buttonIndex);
+    
+    if (buttonIndex == 1) {
+        exit(0);//applestore禁止使用取消
+    }
+}
+
 @end
